@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>gap-guava</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(84, 84, 84); overflow: auto; background-color: rgb(250, 250, 250); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(2, 2, 2); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(2, 2, 2); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(125, 125, 125); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(125, 125, 125); border-color: rgb(208, 209, 210); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(208, 209, 210); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(2, 2, 2); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(208, 209, 210); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(2, 2, 2); background-color: rgb(234, 234, 235); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(239, 239, 240); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(2, 2, 2); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(208, 209, 210) rgb(208, 209, 210) rgb(192, 193, 195); background-color: rgb(234, 234, 235); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: normal; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: ' '; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: black; content: ''; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { -webkit-animation: flash 1s ease-out 1; -webkit-animation-play-state: initial; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.markdown-preview { font-size: 1.25em; color: rgb(80, 81, 83); background-color: rgb(255, 255, 255); }
+.markdown-preview h1, .markdown-preview h2 { color: inherit; border-color: rgb(218, 219, 220); }
+.markdown-preview a { color: rgb(20, 146, 255); }
+.markdown-preview hr { background-color: rgb(255, 255, 255); }
+.markdown-preview blockquote { color: rgb(80, 81, 83); border-left-color: rgba(80, 81, 83, 0.701961); }
+.markdown-preview table th, .markdown-preview table td { border-color: rgb(218, 219, 220); }
+.markdown-preview table th { background-color: rgb(255, 255, 255); }
+.markdown-preview table tr { background-color: rgb(255, 255, 255); }
+.markdown-preview table tr:nth-child(2n) { background-color: rgb(247, 247, 247); }
+.markdown-preview code { color: rgb(104, 106, 110); border-color: rgb(218, 219, 220); background-color: rgb(247, 247, 247); background-clip: padding-box; }
+.markdown-preview pre.editor-colors::shadow .line.cursor-line { background-color: transparent; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 1px dashed rgba(250, 128, 114, 0.5);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #fafafa;
+  color: #545454;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(56, 75, 112, 0.07);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #545454;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #e5e5e6;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+  background-color: #eaeaeb;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(84, 84, 84, 0.4);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(84, 84, 84, 0.4);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(84, 84, 84, 0.4);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #969696;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.git-line-removed:before,
+.host .gutter .line-number.git-line-removed:before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter .line-number.git-line-removed:after,
+.host .gutter .line-number.git-line-removed:after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(255, 20, 20, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #545454;
+  background-color: #efeff0;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #545454;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #545454;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #545454;
+}
+.comment {
+  color: #7b7b79;
+  font-style: italic;
+}
+.entity.name.type {
+  color: #a58a03;
+}
+.entity.other.inherited-class {
+  color: #428b1c;
+}
+.keyword {
+  color: #a71cce;
+}
+.keyword.control {
+  color: #a71cce;
+}
+.keyword.operator {
+  color: #545454;
+}
+.keyword.other.special-method {
+  color: #1f51eb;
+}
+.keyword.other.unit {
+  color: #893a01;
+}
+.storage {
+  color: #a71cce;
+}
+.constant {
+  color: #893a01;
+}
+.constant.character.escape {
+  color: #0a8560;
+}
+.constant.numeric {
+  color: #893a01;
+}
+.constant.other.color {
+  color: #0a8560;
+}
+.constant.other.symbol {
+  color: #0a8560;
+}
+.variable {
+  color: #bf1212;
+}
+.variable.interpolation {
+  color: #b81332;
+}
+.variable.parameter.function {
+  color: #545454;
+}
+.invalid.illegal {
+  background-color: #bf1212;
+  color: #fafafa;
+}
+.string {
+  color: #428b1c;
+}
+.string.regexp {
+  color: #0a8560;
+}
+.string.other.link {
+  color: #bf1212;
+}
+.punctuation.definition.comment {
+  color: #7b7b79;
+}
+.punctuation.definition.parameters,
+.punctuation.definition.array {
+  color: #545454;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #1f51eb;
+}
+.punctuation.definition.bold {
+  color: #a58a03;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #a71cce;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #b81332;
+}
+.support.class {
+  color: #a58a03;
+}
+.support.function {
+  color: #0a8560;
+}
+.support.function.any-method {
+  color: #1f51eb;
+}
+.entity.name.function {
+  color: #1f51eb;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #a58a03;
+}
+.entity.name.section {
+  color: #1f51eb;
+}
+.entity.name.tag {
+  color: #bf1212;
+}
+.entity.other.attribute-name {
+  color: #893a01;
+}
+.entity.other.attribute-name.id {
+  color: #1f51eb;
+}
+.meta.class {
+  color: #a58a03;
+}
+.meta.link {
+  color: #893a01;
+}
+.meta.require {
+  color: #1f51eb;
+}
+.meta.selector {
+  color: #a71cce;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #545454;
+}
+.meta.tag {
+  color: #545454;
+}
+.none {
+  color: #545454;
+}
+.markup.bold {
+  color: #893a01;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #a71cce;
+}
+.markup.deleted {
+  color: #bf1212;
+}
+.markup.italic {
+  color: #a71cce;
+  font-style: italic;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #1f51eb;
+}
+.markup.inserted {
+  color: #428b1c;
+}
+.markup.list {
+  color: #bf1212;
+}
+.markup.quote {
+  color: #893a01;
+}
+.markup.raw.inline {
+  color: #428b1c;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .markup.heading {
+  color: #bf1212;
+}
+.source.gfm .markup.link {
+  color: #1f51eb;
+}
+.source.gfm .link .entity {
+  color: #0a8560;
+}
+.ruby.symbol > .punctuation {
+  color: inherit;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>Examples with <code>guava</code> <code>GAP</code> package</h1>
+<h2>Defining a code</h2>
+<p>We load <code>guava</code> with <code>LoadPackage(&quot;guava&quot;);</code>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;c1:=Codeword(&quot;000&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;c2:=Codeword(&quot;111&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;DistanceCodeword(c1,c2);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Weight(c1);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Weight(c2);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3</span></span></span></div></pre>
+<p>With this two words we can define a code.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=ElementsCode([c1,c2],GF(2));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>a&nbsp;(3,2,1..3)1&nbsp;user&nbsp;defined&nbsp;unrestricted&nbsp;code&nbsp;over&nbsp;GF(2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;IsLinearCode(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>true</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;MinimumDistance(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3</span></span></span></div></pre>
+<p>And so this can detect two errors, and can correct one error.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Decode(C,Codeword(&quot;011&quot;));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Decode(C,Codeword(&quot;010&quot;));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;]</span></span></span></div></pre>
+<p>This code decodes by majority.</p>
+<h2>Linear codes</h2>
+<p>Recall that a code is linear if it is a subspace of <span class="math"><script type="math/tex">\mathbb{F}_q^n</script></span> for some finite field <span class="math"><script type="math/tex">\mathbb{F}_q</script></span> and a positive integer <span class="math"><script type="math/tex">n</script></span>.
+Our code <span class="math"><script type="math/tex">\{000,111\}</script></span> is linear, since it is a subspace of <span class="math"><script type="math/tex">\mathbb{Z}_2^3</script></span>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=ElementsCode([[0,0,0],[0,1,1],[1,0,1],[1,1,0]],GF(2));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>a&nbsp;(3,4,1..3)1&nbsp;user&nbsp;defined&nbsp;unrestricted&nbsp;code&nbsp;over&nbsp;GF(2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;IsLinearCode(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>true</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;G:=GeneratorMat(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0*Z(2),&nbsp;Z(2)^0,&nbsp;Z(2)^0&nbsp;],&nbsp;[&nbsp;Z(2)^0,&nbsp;0*Z(2),&nbsp;Z(2)^0&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;List(GeneratorMat(C),Codeword);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;]&nbsp;]</span></span></span></div></pre>
+<p>Encoding is performed by multiplying on the left by the generating matrix.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Codeword([0,1]*G);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;0&nbsp;1&nbsp;]</span></span></span></div></pre>
+<p>In this case <span class="math"><script type="math/tex">(b_1\ b_1)G=(b_1\ b_2\ b_1+b_2)</script></span>. So the third bit is a parity check.</p>
+<p>A linear code can also be given in terms of its generating matrix or parity check matrix.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;m:=[[1,1,1,0,0,0,0],[1,0,0,1,1,0,0],[0,1,0,1,0,1,0],[1,1,0,1,0,0,1]];;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=GeneratorMatCode(m,GF(2));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>a&nbsp;linear&nbsp;[7,4,1..3]1&nbsp;code&nbsp;defined&nbsp;by&nbsp;generator&nbsp;matrix&nbsp;over&nbsp;GF(2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Elements(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Dimension(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>4</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;H:=CheckMat(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;&lt;an&nbsp;immutable&nbsp;GF2&nbsp;vector&nbsp;of&nbsp;length&nbsp;7&gt;,&nbsp;&lt;an&nbsp;immutable&nbsp;GF2&nbsp;vector&nbsp;of&nbsp;length&nbsp;7&gt;,&nbsp;&lt;an&nbsp;immutable&nbsp;GF2&nbsp;vector&nbsp;of&nbsp;length&nbsp;7&gt;&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;List(H,&nbsp;Codeword);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;c:=Elements(C)[2];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;H*c;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;]</span></span></span></div></pre>
+<p>Recall that in a linear code</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;MinimumDistance(C)&lt;=1+WordLength(C)-Dimension(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>true</span></span></span></div></pre>
+<p>Membership can be detected with <code>in</code>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;cc:=Codeword(&quot;10101000&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;cc&nbsp;in&nbsp;C;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>false</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;H*cc;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;1&nbsp;]</span></span></span></div></pre>
+<h2>Hamming codes</h2>
+<p>A hamming code is a code of word length <span class="math"><script type="math/tex">2^{m-1}</script></span> whose parity matrix contains as rows all nonzero words of <span class="math"><script type="math/tex">m</script></span> bits. The dimension of this code is <span class="math"><script type="math/tex">2^{m-1}-m-1</script></span>. These are denoted by <span class="math"><script type="math/tex">\mathcal{H}_{2^m-1}</script></span>, <span class="math"><script type="math/tex">m\ge 3</script></span>.</p>
+<p>In <code>guava</code> a hamming code is defined by means of its redundancy. For instance, <span class="math"><script type="math/tex">\mathcal{H}_7</script></span> has redundancy <span class="math"><script type="math/tex">3</script></span>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=HammingCode(3);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>a&nbsp;linear&nbsp;[7,4,3]1&nbsp;Hamming&nbsp;(3,2)&nbsp;code&nbsp;over&nbsp;GF(2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;G:=GeneratorMat(C);;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;List(G,Codeword);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Dimension(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>4</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;MinimumDistance(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;WordLength(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>7</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Redundancy(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;AsSortedList(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;]&nbsp;]</span></span></span></div></pre>
+<h2>Decoding with syndromes</h2>
+<p>A linear code <span class="math"><script type="math/tex">C</script></span> is the kernel of its parity check matrix <span class="math"><script type="math/tex">H</script></span>.</p>
+<p>Assume that <span class="math"><script type="math/tex">c</script></span> is a codeword and that an error <span class="math"><script type="math/tex">e</script></span> is produced. Then we receive <span class="math"><script type="math/tex">v=c+e</script></span>, thus <span class="math"><script type="math/tex">e=v+c</script></span> (we are using binary codes). The vector <span class="math"><script type="math/tex">e</script></span> is called a <em>pattern error</em>. We can detect <span class="math"><script type="math/tex">2^n-2^k</script></span> pattern errors (with <span class="math"><script type="math/tex">n</script></span> the length of the words and <span class="math"><script type="math/tex">k</script></span> the dimension of <span class="math"><script type="math/tex">C</script></span>).</p>
+<p>Observe that <span class="math"><script type="math/tex">s=v^t H =e^t H</script></span> and does not depends on <span class="math"><script type="math/tex">c</script></span>. This value is called a syndrome. There is only a syndrome for each class modulo <span class="math"><script type="math/tex">C</script></span>. Indeed, there are as many syndromes as elements in <span class="math"><script type="math/tex">\operatorname{im}(H)</script></span>, and this is isomorphic to <span class="math"><script type="math/tex">\ker(H)/C</script></span>. So we are able to correct <span class="math"><script type="math/tex">2^{n-k}</script></span> pattern errors.</p>
+<p>The syndrome table associates to each syndrome <span class="math"><script type="math/tex">s=v^tH</script></span> an element <span class="math"><script type="math/tex">e</script></span> modulo <span class="math"><script type="math/tex">C</script></span> (with minimal weight). Observe that <span class="math"><script type="math/tex">c=v+e</script></span>, and so we can recover from <span class="math"><script type="math/tex">v</script></span> and <span class="math"><script type="math/tex">e</script></span> the codeword <span class="math"><script type="math/tex">c</script></span>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=HammingCode(3);;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;v:=Codeword(&quot;0000111&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;m:=Decode(C,v);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;m*G;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div></pre>
+<p>We can do this with the syndrome table.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Syndrome(C,v);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;0&nbsp;0&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;H:=CheckMat(C);;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;H*c;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;1&nbsp;0&nbsp;0&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;st:=SyndromeTable(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;]&nbsp;],&nbsp;[&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;]&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;0&nbsp;]&nbsp;],&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;1&nbsp;1&nbsp;]&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;0&nbsp;]&nbsp;],&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;0&nbsp;1&nbsp;]&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;]&nbsp;],&nbsp;[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;]&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;First(st,&nbsp;x-&gt;x[2]=Syndrome(C,v))[1];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;v+last;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;]</span></span></span></div></pre>
+<h2>(Binary) Goppa codes</h2>
+<p>Let <span class="math"><script type="math/tex">g(x)</script></span> be a squarefree polynomial over <span class="math"><script type="math/tex">\mathbb{F}_{2^k}</script></span> for some positive integer <span class="math"><script type="math/tex">k</script></span>. Let <span class="math"><script type="math/tex">L=\{\alpha_1,\ldots,\alpha_n\}\subset \mathbb{F}_{2^k}</script></span> be such that no <span class="math"><script type="math/tex">\alpha_i</script></span> is a zero of <span class="math"><script type="math/tex">g(x)</script></span>. Set for <span class="math"><script type="math/tex">c\in \mathbb{Z}_2^n</script></span>, set <span class="math"><script type="math/tex">R_c(x)=\sum_{i=1}^n \frac{c_i}{x-\alpha_i} \bmod{g(x)}</script></span>. The Goppa code associated to <span class="math"><script type="math/tex">g(x)</script></span> and <span class="math"><script type="math/tex">c</script></span> is the set of <span class="math"><script type="math/tex">c\in\mathbb{Z}_2^n</script></span> such that <span class="math"><script type="math/tex">R_c(x)\cong 0 \bmod{g(x)}</script></span>.</p>
+<p>The minimum distance of this codes is <span class="math"><script type="math/tex">2\deg(g(x))+1</script></span>.</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;x:=X(GF(8),&quot;x&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>x</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;g:=x^2+x+1;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>x^2+x+Z(2)^0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;L:=Elements(GF(8));</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;0*Z(2),&nbsp;Z(2)^0,&nbsp;Z(2^3),&nbsp;Z(2^3)^2,&nbsp;Z(2^3)^3,&nbsp;Z(2^3)^4,&nbsp;Z(2^3)^5,&nbsp;Z(2^3)^6&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;C:=GoppaCode(g,L);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>a&nbsp;linear&nbsp;[8,2,5]3&nbsp;classical&nbsp;Goppa&nbsp;code&nbsp;over&nbsp;GF(2)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;Elements(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;0&nbsp;0&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;],</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>[&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;]&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;G:=GeneratorMat(C);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;&lt;an&nbsp;immutable&nbsp;GF2&nbsp;vector&nbsp;of&nbsp;length&nbsp;8&gt;,&nbsp;&lt;an&nbsp;immutable&nbsp;GF2&nbsp;vector&nbsp;of&nbsp;length</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>8&gt;&nbsp;]</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;List(G,Codeword);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;[&nbsp;1&nbsp;1&nbsp;1&nbsp;1&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;],&nbsp;[&nbsp;1&nbsp;1&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;1&nbsp;1&nbsp;]&nbsp;]</span></span></span></div></pre>
+<p>We can compute <span class="math"><script type="math/tex">\frac{1}{x-a}\mod g(x)</script></span> with <span class="math"><script type="math/tex">a\in L</script></span></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>gap&gt;&nbsp;inv:=List(L,&nbsp;a-&gt;GcdRepresentation(x-a,g)[1]);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>[&nbsp;x+Z(2)^0,&nbsp;x,&nbsp;Z(2^3)^2*x+Z(2^3)^5,&nbsp;Z(2^3)^4*x+Z(2^3)^3,&nbsp;Z(2^3)^2*x+Z(2^3)^3,</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Z(2^3)*x+Z(2^3)^6,&nbsp;Z(2^3)*x+Z(2^3)^5,&nbsp;Z(2^3)^4*x+Z(2^3)^6&nbsp;]</span></span></span></div></pre></body>
+</html>
