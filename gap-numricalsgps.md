@@ -1,6 +1,6 @@
 # `NumericalSgps`
-
 ## Notable elements
+
 
 In order to work with numerical semigroups, we have to load the package `numericalsgps`. For this tutorial we have used the development version available in [bitbucket](https://bitbucket.org/gap-system/numericalsgps).
 
@@ -430,4 +430,16 @@ gap> List(l,x->TameDegreeOfElementInNumericalSemigroup(x,s));
   3, 0, 3, 0, 0, 0, 3, 0, 3, 0, 3, 0, 10, 0, 3, 3, 3, 3, 10, 3, 3, 10, 3, 0,
   10, 0, 3, 10, 3, 0, 10, 0, 7, 10, 3, 3, 10, 3, 7, 10, 3, 7, 10, 0, 7, 10,
   3, 0, 10, 0, 3, 10, 7 ]
+```
+
+## Random
+
+Looking for a four generated numerical semigroup with 7 relators.
+
+```
+gap> l:=List([1..20], _->RandomNumericalSemigroup(5,500));;
+gap> ll:=Filtered(l, s->EmbeddingDimension(s)=4);;
+gap> Filtered(ll, s->Length(MinimalPresentationOfNumericalSemigroup(s))=7);
+gap> MinimalGenerators(last[1]);
+[ 315, 318, 485, 493 ]
 ```
