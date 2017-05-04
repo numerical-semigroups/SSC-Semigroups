@@ -183,3 +183,35 @@ gap> inv:=List(L, a->GcdRepresentation(x-a,g)[1]);
 [ x+Z(2)^0, x, Z(2^3)^2*x+Z(2^3)^5, Z(2^3)^4*x+Z(2^3)^3, Z(2^3)^2*x+Z(2^3)^3,
   Z(2^3)*x+Z(2^3)^6, Z(2^3)*x+Z(2^3)^5, Z(2^3)^4*x+Z(2^3)^6 ]
 ```
+
+Yet another example
+```
+gap> x:=Indeterminate(GF(16),"x");
+x
+gap> g:=x^2+x+Z(16)^3;      
+x^2+x+Z(2^4)^3
+gap> L := List([2..13], i->Z(16)^i);
+[ Z(2^4)^2, Z(2^4)^3, Z(2^4)^4, Z(2^2), Z(2^4)^6, Z(2^4)^7, Z(2^4)^8,
+  Z(2^4)^9, Z(2^2)^2, Z(2^4)^11, Z(2^4)^12, Z(2^4)^13 ]
+gap> C:=GoppaCode(g,L);
+a linear [12,4,5]4..5 classical Goppa code over GF(2)
+gap> H:=CheckMat(C);
+[ <an immutable GF2 vector of length 12>, <an immutable GF2 vector of length
+    12>, <an immutable GF2 vector of length 12>,
+  <an immutable GF2 vector of length 12>, <an immutable GF2 vector of length
+    12>, <an immutable GF2 vector of length 12>,
+  <an immutable GF2 vector of length 12>, <an immutable GF2 vector of length
+    12> ]
+gap> List(H,Codeword);
+[ [ 0 0 1 0 1 0 0 0 0 0 0 1 ], [ 0 1 0 1 1 0 0 0 1 0 0 1 ],
+  [ 0 0 0 0 1 1 0 1 0 1 1 1 ], [ 1 0 0 1 0 0 1 0 1 1 1 0 ],
+  [ 0 0 0 1 0 0 0 0 1 0 0 1 ], [ 0 0 0 0 0 1 0 1 1 0 0 0 ],
+  [ 0 0 0 0 0 0 0 1 1 0 1 0 ], [ 0 0 0 0 0 0 1 0 0 1 0 0 ] ]
+gap> G:=GeneratorMat(C);
+[ <an immutable GF2 vector of length 12>, <an immutable GF2 vector of length
+    12>, <an immutable GF2 vector of length 12>,
+  <an immutable GF2 vector of length 12> ]
+gap> List(G,Codeword);
+[ [ 0 1 1 1 1 0 0 1 1 0 0 0 ], [ 0 1 1 0 1 0 1 0 0 1 0 0 ],
+  [ 1 1 1 0 1 1 0 1 0 0 1 0 ], [ 1 1 0 1 1 0 0 0 0 0 0 1 ] ]
+```
