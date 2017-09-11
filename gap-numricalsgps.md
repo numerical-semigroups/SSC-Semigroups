@@ -2,7 +2,7 @@
 ## Notable elements
 
 
-In order to work with numerical semigroups, we have to load the package `numericalsgps`. For this tutorial we have used the development version available in [bitbucket](https://bitbucket.org/gap-system/numericalsgps).
+In order to work with numerical semigroups, we have to load the package `numericalsgps`. For this tutorial we have used the development version available in [github](https://gap-packages.github.io/numericalsgps).
 
 ```
 gap> LoadPackage("num");  
