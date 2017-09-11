@@ -281,7 +281,7 @@ One can keep computing Lipman semigroups until we reach $\mathbb{N}$, and the mu
 gap> MultiplicitySequenceOfNumericalSemigroup(s);
 [ 6, 3, 3, 3, 3, 2, 1 ]
 ```
-## Minimal presentations
+## Minimal presentations
 
 The set of factorizations of an element in a numerical semigroup can be obtained as follows.
 
@@ -382,7 +382,7 @@ Recall that the maximum is reached in the Betti elements of the semigroup.
 gap> List(B,b->DeltaSetOfFactorizationsElementWRTNumericalSemigroup(b,s));
 [ [ 1 ], [ 1, 4 ] ]
 ```
-### Catenary degree
+### Catenary degree
 
 The catenary degree of a numerical semigroup is achieved in one of its Betti elements.
 
@@ -393,7 +393,7 @@ gap> CatenaryDegreeOfNumericalSemigroup(s);
 7
 ```
 
-### Omega primality
+### Omega primality
 
 The omega primality of an element or of the semigroup (maximum of its atoms) can be computed as follows.
 ```
