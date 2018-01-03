@@ -106,7 +106,7 @@ gap> FundamentalGaps(s);
 gap> NumericalSemigroupByFundamentalGaps([4])=s;
 true
 ```
-As we can do with small elementa and gaps.
+As we can do with small elements and gaps.
 ```
 gap> NumericalSemigroupByGaps(Gaps(s))=s;
 true
@@ -274,7 +274,7 @@ gap> MinimalGenerators(BlowUpOfNumericalSemigroup(s));
 gap> LipmanSemigroup(s);
 <Numerical semigroup with 3 generators>
 gap> MinimalGenerators(last);
-[ 3, 14
+[ 3, 14 ]
 ```
 One can keep computing Lipman semigroups until we reach $\mathbb{N}$, and the multiplicities of these semigroups conform the multiplicity sequence of $S$
 ```
@@ -410,7 +410,7 @@ gap> List(A, a->OmegaPrimalityOfElementInNumericalSemigroup(a,s));
 [ 3, 3, 10 ]
 ```
 
-## Tame degree
+### Tame degree
 
 We have specific funtions to compute the tame degree of an element in a numerical semigroup and the tame degree of the whole semigroup.
 

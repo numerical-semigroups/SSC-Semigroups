@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>gap--NumricalSgps</title>
+    <!--<style type="text/css">code{white-space: pre;}</style>-->
+    <link rel="stylesheet" href="otro-thebelab.css" type="text/css" />
+    <link rel="stylesheet" href="status_button.css" type="text/css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>  
+  
+    <!-- Thebe configuration !-->
+    <script type="text/x-thebe-config">
+      {
+        bootstrap: true,
+        binderOptions: {
+          repo: "sebasguts/GAPBinderDemo",
+        },
+        kernelOptions: {
+          name: "gap-native",
+        },
+        stripPrompts: {
+          inPrompt: 'gap> ',
+          continuationPrompt: '> ',
+          selector: '.gap-input',
+        }
+  
+      }
+    </script>
+    <script type="text/javascript" src="https://unpkg.com/thebelab@^0.1.0" ></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            thebelab.on("status", function(evt, data) {
+                console.log("Status changed:", data.status, data.message);
+                $(".thebe-status-button")
+                .attr("class", "thebe-status-button thebe-status-" + data.status)
+                .text(data.status);
+            });
+            $(".thebe-status-button")
+                .attr("class", "thebe-status-button thebe-status-" + "not-connected")
+                .text("Not connected");
+        };
+    </script>  
+    
+
+  </head>
+<body>
+<h1>Examples with <code style="font-family: Courier;">NumericalSgps</code> <code style="font-family: Courier;">GAP</code> package</h1>
+
+In this page we use <a href="https://github.com/minrk/thebelab">Thebelab</a> with a  <a href="http://www.gap-system.org/">gap</a> kernel to illustrate the examples.
+
+<span>Kernel status: <span class="thebe-status-button"></span></span>
+
+
+<h2>Notable elements</h2>
+<p>We load <code style="font-family: Courier;">NumericalSgps</code> with <code style="font-family: Courier;">LoadPackage(&quot;numericalsgps&quot;);</code>. When pressing the "run" button, be patient, <a href="https://mybinder.org">binder</a> may take some time to start.</p>
+
+
+<pre class="gap-input" data-language="gap">
+  gap>  LoadPackage("num");
+</pre>
+
+<p>We start by defining a numerical semigroup. There are many ways to do this depending on the information we have about it. If we know a system of generators, then we can do the following. We will store the semigroup in a variable called <tt>s</tt>.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> s:=NumericalSemigroup(3,5,7); 
+</pre>
+
+<p>Indeed, \(\{3,5,7\}\) is a minimal generating set for <tt>s</tt>.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> MinimalGenerators(s);
+</pre>    
+
+<p>
+    Membership can be detected with <tt>in</tt>:
+</p>
+
+<pre class="gap-input" data-language="gap">
+        gap> 1 in s;
+
+        gap> 100 in s;
+</pre>    
+
+<p>
+The set of sporadic elements (elements up to the conductor, or small elements) of the semigroup are
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> SmallElements(s);
+
+    gap> Conductor(s);
+
+    gap> FrobeniusNumber(s);
+</pre>
+
+<p>
+    This is also showing us the sets of gaps of <tt>s</tt>
+</p>
+<pre class="gap-input" data-language="gap">
+        gap> Gaps(s);
+
+        gap> Genus(s);
+</pre>
+
+<p>
+    Recall that from the Apéry sets, one can retreive all this information.
+</p>
+<pre class="gap-input" data-language="gap">
+        gap> AperyList(s);
+</pre>
+
+<p>
+    If only the semigroup is given as argument, then the Apéry set is computed with respect to the multiplicity. Note that the output is a list, in the $i$th position we find the smallest element in <tt>s</tt> congruent with $i$ modulo the multiplicity (or the given element we specify as second argument). 
+</p>
+<pre class="gap-input" data-language="gap">
+        gap> AperyList(s,10);
+</pre>
+
+
+<p>
+    It is well know that if the second argument is in the semigroup, then the output will have length precisely this argument. It not, the we get some extra elements.
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> AperyList(s,6);
+</pre>
+<p>
+    The set of pseudo-Frobenius numbers can be computed as follows.
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> PseudoFrobeniusOfNumericalSemigroup(s);
+
+    gap> Type(s);
+</pre>
+
+<p>
+    Let us for instance check that Wilf's conjecture holds for all numerical semigroups with conductor equal to 20 (and thus Frobenius number 19).
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> ForAll(NumericalSemigroupsWithFrobeniusNumber(19), 
+    > s->20<=EmbeddingDimension(s)*(Length(SmallElements(s))-1));
+    true
+</pre>
+
+<p>
+We are substracting one to the number of small elements since we consider the conductor as small element.
+</p>
+<p>
+The special gaps (those that can be use to extend the semigroup to another numerical semigroup) are
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> SpecialGaps(s);
+    [ 4 ]
+    gap> t:=AddSpecialGapOfNumericalSemigroup(4,s);
+    <Numerical semigroup>
+    gap> SmallElements(t);
+    [ 0, 3 ]        
+</pre>
+And the set of all oversemigroups:
+<pre class="gap-input" data-language="gap">
+    gap> OverSemigroupsNumericalSemigroup(s);
+
+    gap> List(last,MinimalGenerators);
+</pre>
+
+
+<p>The set of fundamental gaps, is computed as follows. We can use fundamental gaps to define semigroups.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> FundamentalGaps(s);
+
+    gap> NumericalSemigroupByFundamentalGaps([4])=s;    
+</pre>
+
+<p>As we can do with small elements and gaps.</p>
+
+<pre class="gap-input" data-language="gap">
+        gap> NumericalSemigroupByGaps(Gaps(s))=s;
+        true
+        gap> NumericalSemigroupBySmallElements(SmallElements(s))=s;
+        true
+</pre>
+
+<h2>Irreducible numerical semigroups</h2>
+
+<p>
+Our semigroup example `s` is not symmetric, but it is pseudo-symmetric.
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> IsIrreducible(s);
+    true
+    gap> IsSymmetric(s);
+    false
+</pre>
+<p>
+Symmetric numerical semigroups have type one, whole pseudo-symmetric have type equal to two.
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> List(IrreducibleNumericalSemigroupsWithFrobeniusNumber(19),
+    > MinimalGenerators);
+</pre>
+<p>
+Every numerical semigroup can be expressed (though not uniquely) as the intersection of irreducible numerical semigroups.
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> t:=NumericalSemigroup(10,11,12,13);
+
+    gap> List(DecomposeIntoIrreducibles(t);,MinimalGenerators);
+</pre>
+
+<p>We can actually find all oversemigroups of `t` that are irreducible.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> o:=OverSemigroupsNumericalSemigroup(t);;
+    gap> oi:=Filtered(o,IsIrreducible);;
+    gap> Length(oi);
+    35
+    gap> t=Intersection(oi);
+    true
+</pre>
+<p>
+There are some special families of symmetric numerical semigroups, as complete intersections, free, telescopic, ...
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> s:=NumericalSemigroup(4,6,9);
+    gap> IsFree(s);
+    true
+    gap> lf:=FreeNumericalSemigroupsWithFrobeniusNumber(19);;
+    gap> List(lf,MinimalGenerators);
+</pre>
+    
+<h2>Almost symmetric numerical semigroups</h2>
+
+<p>We can construct almost symmetric numerical semigruops from irreducible numerical semigroups by removing some of its elements.</p>
+<pre class="gap-input" data-language="gap">
+    gap> AlmostSymmetricNumericalSemigroupsFromIrreducible(s);
+
+    gap> List(last,MinimalGenerators);
+</pre>
+<p>
+Actually, one can compute with this idea the set of all almost symmetric numerical semigroups with given Frobenius number.
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> t:=First(AlmostSymmetricNumericalSemigroupsWithFrobeniusNumber(19),
+    > s->not(IsIrreducible(s)));
+    
+    gap> MinimalGenerators(t);
+    
+    gap> Genus(t)=(FrobeniusNumber(t)+Type(t))/2;
+</pre>
+
+
+<h2>Ideals</h2>
+
+<p>An ideal of a numerical semigroup can be defined by means of a generating system.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> s:=NumericalSemigroup(6,9,20);
+
+    gap> i:=[2,3]+s;
+
+    gap> MinimalGenerators(i);
+
+</pre>
+
+<p>The above ideal is not included in its ambient semigroup, and so it is not integral.</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> IsIntegral(i);
+
+    gap> AmbientNumericalSemigroupOfIdeal(i);
+
+</pre>
+<p>
+We can check membership with <tt>in</tt>.
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> 8 in s;
+    false
+    gap> 8 in i;
+    true
+</pre>
+
+<p>
+    Ideals also have conductors, since they are unions of translations of numerical semigroups.
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> Conductor(i);
+
+    gap> SmallElements(i);
+
+</pre>
+
+<p>The basic operations include intersection, sum, addition, translations and difference.
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> j:=10+s;
+    
+    gap> i+j;
+
+    gap> MinimalGenerators(i+j);
+
+    gap> MinimalGenerators(10+i);
+
+    gap> Difference(i,j);
+
+    gap> MinimalGenerators(Intersection(i,j));
+</pre>
+
+<p>
+    The colon operation of ideals of rings translates in ideals of numerical semigroups to \(I-J=\{z\in \mathbb{Z} \mid z+J\subseteq I\}\).
+</p>
+
+<pre class="gap-input" data-language="gap">
+        gap> MinimalGenerators(i-j);
+
+</pre>
+
+<p>
+    There are a couple of special ideals, one is the maximal ideal and the other the canonical (unique up to translations).
+</p>
+
+<pre class="gap-input" data-language="gap">
+        gap> m:=MaximalIdealOfNumericalSemigroup(s);
+
+        gap> c:=CanonicalIdealOfNumericalSemigroup(s);
+
+        gap> c-(c-i)=i;
+
+        gap> MinimalGenerators(m);
+
+        gap> MinimalGenerators(c);
+
+        gap> IsCanonicalIdeal(10+c);
+</pre>
+
+<p>The blow up of an ideal $I$ of a numerical semigroup \(S\) is defined as \(\bigcup_{n\in \mathbb{N}}(nI-nI)\).
+</p>
+
+<pre class="gap-input" data-language="gap">
+    gap> MinimalGenerators(BlowUpIdealOfNumericalSemigroup(i));
+
+    gap> List([1..10], n->HilbertFunctionOfIdealOfNumericalSemigroup(n,i));
+
+</pre>
+<p>If the ideal is the maximal ideal, then it coincides with the Lipman semigroup of \(S\).
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> MinimalGenerators(BlowUpOfNumericalSemigroup(s));
+
+    gap> LipmanSemigroup(s);
+
+    gap> MinimalGenerators(last);
+</pre>
+
+<p>
+One can keep computing Lipman semigroups until we reach \(\mathbb{N}\), and the multiplicities of these semigroups conform the multiplicity sequence of \(S\)
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> MultiplicitySequenceOfNumericalSemigroup(s);
+</pre>
+
+<h2>Minimal presentations</h2>
+
+The set of factorizations of an element in a numerical semigroup can be obtained as follows.
+
+<pre class="gap-input" data-language="gap">
+    gap> s:=NumericalSemigroup(6,9,20);
+
+    gap> FactorizationsElementWRTNumericalSemigroup(36,s);
+</pre>
+<p>
+And the set of \(\mathcal{R}\)-classes as</p>
+<pre class="gap-input" data-language="gap">
+    gap> RClassesOfSetOfFactorizations(last);
+</pre>
+<p>The set of Betti elements is
+</p>
+<pre class="gap-input" data-language="gap">
+    gap> BettiElementsOfNumericalSemigroup(s);
+</pre>
+
+<p>And a minimal presentation is obtained with</p>
+<pre class="gap-input" data-language="gap">
+    gap> MinimalPresentationOfNumericalSemigroup(s);
+</pre>
+Recall that we can produce this also by using elimination.
+<pre class="gap-input" data-language="gap">
+    gap> x:=Indeterminate(Rationals,"x");;  
+    gap> y:=Indeterminate(Rationals,"y");;
+    gap> z:=Indeterminate(Rationals,"z");;
+    gap> t:=Indeterminate(Rationals,"t");;
+    gap> R:=PolynomialRing(Rationals,[x,y,z,t]);
+
+    gap> i:=Ideal(R,[x-t^6,y-t^9,z-t^20]);
+
+    gap> GroebnerBasis(i,EliminationOrdering([t]));
+</pre>
+The graph $G_n$ can be calculated in the following way.
+<pre class="gap-input" data-language="gap">
+    gap> GraphAssociatedToElementInNumericalSemigroup(60,s);
+</pre>
+In this example, it has three vertices and a single edge.
+
+We can also calculate the shaded set of an element.
+<pre class="gap-input" data-language="gap">
+    gap> ShadedSetOfElementInNumericalSemigroup(60,s);
+</pre>
+
+The Hilbert series (or generating function of $S$) is computed via the polynomial associated to $S$.
+<pre class="gap-input" data-language="gap">
+    gap> HilbertSeriesOfNumericalSemigroup(s,x);
+
+    gap> NumericalSemigroupPolynomial(s,x);
+</pre>
+Actually, this polynomial has all its roots in the unit circle.
+<pre class="gap-input" data-language="gap">
+    gap> IsKroneckerPolynomial(last);
+</pre>
+
+<h2>Nonunique factorization invariants</h2>
+
+We already know how to compute the set of factorizations of an element in the semigroup. The set of lengths is calculated as follows.
+
+<h3> Sets of lengths</h3>
+
+<pre class="gap-input" data-language="gap">
+    gap> LengthsOfFactorizationsElementWRTNumericalSemigroup(100,s);
+</pre>
+
+<h3> Elasticity</h3>
+
+The elasticity of an element and of the whole numerical semigroup can be computed with the following functions.
+<pre class="gap-input" data-language="gap">
+    gap> ElasticityOfFactorizationsElementWRTNumericalSemigroup(100,s);
+
+    gap> ElasticityOfNumericalSemigroup(s);
+</pre>
+
+<h3> Delta sets</h3>
+
+The set of distances or Delta set:
+<pre class="gap-input" data-language="gap">
+    gap> DeltaSetOfFactorizationsElementWRTNumericalSemigroup(100,s);
+</pre>
+
+Or even of the whole semigroups
+
+<pre class="gap-input" data-language="gap">
+    gap> DeltaSetOfNumericalSemigroup(s);
+</pre>
+
+Recall that the maximum is reached in the Betti elements of the semigroup.
+<pre class="gap-input" data-language="gap">
+    gap> List(B,b->DeltaSetOfFactorizationsElementWRTNumericalSemigroup(b,s));
+</pre>
+
+<h3> Catenary degree</h3>
+
+The catenary degree of a numerical semigroup is achieved in one of its Betti elements.
+
+<pre class="gap-input" data-language="gap">
+    gap> List(B, b->CatenaryDegreeOfElementInNumericalSemigroup(b,s));
+
+    gap> CatenaryDegreeOfNumericalSemigroup(s);
+</pre>
+
+<h3> Omega primality</h3>
+
+The omega primality of an element or of the semigroup (maximum of its atoms) can be computed as follows.
+<pre class="gap-input" data-language="gap">
+    gap> OmegaPrimalityOfElementInNumericalSemigroup(100,s);
+
+    gap> OmegaPrimalityOfNumericalSemigroup(s);
+</pre>
+
+Because for the atoms we obtain
+
+<pre class="gap-input" data-language="gap">
+    gap> A:=MinimalGenerators(s);
+
+    gap> List(A, a->OmegaPrimalityOfElementInNumericalSemigroup(a,s));
+</pre>
+
+<h3> Tame degree</h3>
+
+We have specific funtions to compute the tame degree of an element in a numerical semigroup and the tame degree of the whole semigroup.
+
+<pre class="gap-input" data-language="gap">
+    gap> TameDegreeOfElementInNumericalSemigroup(100,s);
+
+    gap> TameDegreeOfNumericalSemigroup(s);
+
+    gap> l:=Intersection(s,[1..100]);
+
+    gap> List(l,x->TameDegreeOfElementInNumericalSemigroup(x,s));
+</pre>
+
+<h2> Random</h2>
+
+Looking for a four generated numerical semigroup with 7 relators.
+
+<pre class="gap-input" data-language="gap">
+    gap> l:=List([1..20], _->RandomNumericalSemigroup(5,500));;
+    gap> ll:=Filtered(l, s->EmbeddingDimension(s)=4);;
+    gap> Filtered(ll, s->Length(MinimalPresentationOfNumericalSemigroup(s))=7);
+    gap> MinimalGenerators(last[1]);
+</pre>
+
+
+</body>
+</html>
