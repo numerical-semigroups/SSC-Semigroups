@@ -206,7 +206,7 @@ Every numerical semigroup can be expressed (though not uniquely) as the intersec
 <pre class="gap-input" data-language="gap">
     gap> t:=NumericalSemigroup(10,11,12,13);
 
-    gap> List(DecomposeIntoIrreducibles(t);,MinimalGenerators);
+    gap> List(DecomposeIntoIrreducibles(t),MinimalGenerators);
 </pre>
 
 <p>We can actually find all oversemigroups of `t` that are irreducible.</p>
