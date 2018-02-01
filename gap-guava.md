@@ -1,6 +1,6 @@
 # Examples with `guava` `GAP` package
 
-## Defining a code
+## Defining a code
 
 We load `guava` with `LoadPackage("guava");`.
 
