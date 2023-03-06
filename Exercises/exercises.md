@@ -16,7 +16,7 @@
 
 1. Let $S=\langle 4,6,9\rangle$. Find all $s\in S$ such that $\chi(\mathcal{F}(s))\neq 0$. Compute the Hilbert series of $S$.
 
-1. Let $S=\langle n_1,\ldots, n_e\rangle$. Prove that $\prod_{i=1}^n (1-x^{n_i})=\sum_{s\in S} \mathfrak{d}(s)x^s$, where $\mathfrak{d}(s)=\#\mathsf{Z}(s)$, the denumerant of $s$.
+1. Let $S=\langle n_1,\ldots, n_e\rangle$. Prove that $\prod_{i=1}^n (1-x^{n_i})=\sum_{s\in S} \mathfrak{d}(s)x^s$, where $\mathfrak{d}(s)=|\mathsf{Z}(s)|$, the denumerant of $s$.
 
 1. Let $S=\langle 5, 7, 11, 13\rangle$. Draw $\mathcal{F}'(28)$.
 
@@ -36,4 +36,4 @@
 
 1. Let $S=\langle 4,6,9\rangle$. Compute $\delta_{FR}(14)$.
 
-1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\{\#\operatorname{Ap}(S,n)\mid n\in\mathbb{N}\setminus\{0\}\}=\min\{\#\operatorname{Ap}(S,n)\mid n\in\{1,\ldots,m\}\}$.
+1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\{|\operatorname{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\{0\}\}=\min\{\#\operatorname{Ap}(S,n)\mid n\in\{1,\ldots,m\}\}$.
