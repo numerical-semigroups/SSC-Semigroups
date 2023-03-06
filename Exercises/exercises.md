@@ -1,4 +1,4 @@
-# Exercises: numererical semigroups
+# Exercises: numerical semigroups
 
 ## Minimal presentations
 
