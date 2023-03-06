@@ -36,4 +36,4 @@
 
 1. Let $S=\langle 4,6,9\rangle$. Compute $\delta_{FR}(14)$.
 
-1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\{|\operatorname{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\{0\}\}=\min\{\#\operatorname{Ap}(S,n)\mid n\in\{1,\ldots,m\}\}$.
+1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\{|\operatorname{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\{0\}\}=\min\{|\operatorname{Ap}(S,n)|\mid n\in\{1,\ldots,m\}\}$.
