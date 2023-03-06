@@ -2,13 +2,13 @@
 
 ## Minimal presentations
 
-1. Let $S=\langle n_1,\ldots, n_e\rangle$ and let $c_i=\min\{k\in \mathbb{N}\setminus\{0\} \mid kn_i\in \langle \{n_1,\ldots,n_e\}\setminus\{n_i\}\rangle \}$. Prove that $c_in_i$ is a Betti element for all $i\in\{1,\ldots,e\}$.
+1. Let $S=\langle n_1,\ldots, n_e\rangle$ and let $c_i=\min\lbrace k\in \mathbb{N}\setminus\lbrace 0\rbrace  \mid kn_i\in \langle \lbrace n_1,\ldots,n_e\rbrace \setminus\lbrace n_i\rbrace \rangle \rbrace$. Prove that $c_in_i$ is a Betti element for all $i\in\lbrace 1,\ldots,e\rbrace$.
 
-1. Let $S=\langle a,b\rangle$. Show that $\operatorname{Betti}(S)=\{a b\}$.
+1. Let $S=\langle a,b\rangle$. Show that $\operatorname{Betti}(S)=\lbrace a b\rbrace$.
 
-1. Let $S=\langle n_1,n_2,n_3\rangle$. Prove that $\operatorname{Betti}(S)=\{c_1n_1,c_2n_2,c_3n_3\}$, with $c_i$ defined as above.
+1. Let $S=\langle n_1,n_2,n_3\rangle$. Prove that $\operatorname{Betti}(S)=\lbrace c_1n_1,c_2n_2,c_3n_3\rbrace$, with $c_i$ defined as above.
 
-1. Find an example of a numerical semigroup $S=\langle n_1,\ldots, n_e\rangle$ such that $\{c_1n_1,\ldots, c_en_e\}\subsetneq \operatorname{Betti}(S)$.
+1. Find an example of a numerical semigroup $S=\langle n_1,\ldots, n_e\rangle$ such that $\lbrace c_1n_1,\ldots, c_en_e\rbrace \subsetneq \operatorname{Betti}(S)$.
 
 1. Find two essentially different minimal presentations of $\langle 4,6,9\rangle$.
 
@@ -36,4 +36,4 @@
 
 1. Let $S=\langle 4,6,9\rangle$. Compute $\delta_{FR}(14)$.
 
-1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\{|\operatorname{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\{0\}\}=\min\{|\operatorname{Ap}(S,n)|\mid n\in\{1,\ldots,m\}\}$.
+1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\lbrace |\operatorname{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\lbrace 0\rbrace \rbrace =\min\lbrace |\operatorname{Ap}(S,n)|\mid n\in\lbrace 1,\ldots,m\rbrace \rbrace $.
