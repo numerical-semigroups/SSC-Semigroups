@@ -7,3 +7,14 @@ In this folder there are some examples of the use of [gap](http://www.gap-system
 We will follow mainly this [book](http://www.springer.com/us/book/9781441901590) on numerical semigroups and this [other](http://www.springer.com/us/book/9781441901590) with some applications.
 
 This repository contains a [live tutorial of numericalsgps](https://pedritomelenas.github.io/SSC-Semigroups/Live/gap-numericalsgps-thebelab.html) using [thebelab](https://github.com/minrk/thebelab).
+
+## Contents
+
+- [First steps](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/1-First%20steps%20GAP.ipynb) in GAP
+- [Firts lesson](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/2-numercalsgps-first-session.ipynb) on numericalsgps: minimal generators, gaps, Apéry sets
+- [Second lesson](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/3-numericalsgps-second-lesson.ipynb) on numericalsgps: pseudo-Frobenius numbers, some "extreme" families (maximal embeddin dimension, irreducible, almost symmetric)
+- [Third lesson](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/4-numercalsgps-third-session.ipynb) on numericalsgps: gluings, Hilbert series, minimal presentations I
+- [Fourth lesson](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/5-numercalsgps-fourth-session.ipynb) on numericalsgps: computing minimal presentations, presentations and binomial ideals, complete intersections
+- [Fifth lesson](https://github.com/numerical-semigroups/SSC-Semigroups/blob/master/6-numericalsgps-fifth-session.ipynb) on numericalsgps: non-unique factorization invariants, primality, divisors
+- [Sixth lesson]() on numericalsgps: ideals of numerical semigroups
+
