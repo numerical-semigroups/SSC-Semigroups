@@ -2,7 +2,7 @@
 
 ## Minimal presentations
 
-1. Let $S=\langle n_1,\ldots, n_e\rangle$ and let $c_i=\min\lbrace k\in \mathbb{N}\setminus\lbrace 0\rbrace  \mid kn_i\in \langle \lbrace n_1,\ldots,n_e\rbrace \setminus\lbrace n_i\rbrace \rangle \rbrace$. Prove that $c_in_i$ is a Betti element for all $i\in\lbrace 1,\ldots,e\rbrace$.
+1. Let $S=\langle n_1,\ldots, n_e\rangle$ and let $c_i=\min\lbrace k\in \mathbb{N}\setminus\lbrace 0\rbrace  : kn_i\in \langle \lbrace n_1,\ldots,n_e\rbrace \setminus\lbrace n_i\rbrace \rangle \rbrace$. Prove that $c_in_i$ is a Betti element for all $i\in\lbrace 1,\ldots,e\rbrace$.
 
 1. Let $S=\langle a,b\rangle$. Show that $\mathrm{Betti}(S)=\lbrace a b\rbrace$.
 
@@ -38,4 +38,4 @@
 
 1. Let $S=\langle 4,6,9\rangle$. Compute $\delta_{FR}(14)$.
 
-1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\lbrace |\mathrm{Ap}(S,n)|\mid n\in\mathbb{N}\setminus\lbrace 0\rbrace \rbrace =\min\lbrace |\mathrm{Ap}(S,n)|\mid n\in\lbrace 1,\ldots,m\rbrace \rbrace $.
+1. Let $S$ be a numerical semigroup with multplicity $m$. Prove that $\min\lbrace |\mathrm{Ap}(S,n)| : n\in\mathbb{N}\setminus\lbrace 0\rbrace \rbrace =\min\lbrace |\mathrm{Ap}(S,n)| : n\in\lbrace 1,\ldots,m\rbrace \rbrace $.
