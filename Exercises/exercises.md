@@ -32,7 +32,7 @@
 
 1. Find a numerical semigroup with catenary degree $4$.
 
-1. Let $M$ be a subgroup of $\mathbb Z^n$. Let $\sigma_M$ be the binary relation defined as $(a,b)\in \sigma_M$ if $a-b\in M$. Prove that $\sigma_M$ is a congruence, and that if $S$ is a numerical semigroup, then $\ker(\varphi)=\sigma_{M_S}$, where $M_S=\{ a-b : \varphi(a)=\varphi(b)\}$ and $\varphi$ is the usual factorization homomorphism of $S$.
+1. Let $M$ be a subgroup of $\mathbb Z^n$. Let $\sigma_M$ be the binary relation defined as $(a,b)\in \sigma_M$ if $a-b\in M$. Prove that $\sigma_M$ is a congruence, and that if $S$ is a numerical semigroup, then $\ker(\varphi)=\sigma_{M_S}$, where $M_S=\lbrace a-b : \varphi(a)=\varphi(b)\rbrace$ and $\varphi$ is the usual factorization homomorphism of $S$.
 
 ## Divisors
 
