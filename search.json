@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "GAP - Software matemáticas",
+    "title": "SSC Numerical semigroups course",
     "section": "",
     "text": "Examples for the course on numerical semigroups at the Scuola superiore di Catania\nIn this folder there are some examples of the use of NumericalSgps gap package for the contents of the course.\nWe will follow mainly this book on numerical semigroups and this other with some applications."
   },
