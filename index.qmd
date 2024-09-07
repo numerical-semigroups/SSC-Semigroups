@@ -1,6 +1,6 @@
 ---
 title: "SSC Numerical semigroups course"
-lang: es
+lang: en
 ---
 
 Examples for the course on numerical semigroups at the [Scuola superiore di Catania](http://www.scuolasuperiorecatania.it)
