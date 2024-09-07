@@ -1,5 +1,5 @@
 ---
-title: "GAP - Software matemáticas"
+title: "SSC Numerical semigroups course"
 lang: es
 ---
 
