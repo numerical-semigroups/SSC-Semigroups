@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>gap-guava – Numerical semigroups course Scuola Superiore di Catania</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Numerical semigroups course Scuola Superiore di Catania</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/numerical-semigroups/SSC-Semigroups"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gap-guava.html">Codes with GUAVA</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-First steps GAP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">First steps in GAP</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-numercalsgps-first-session.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Numerical semigroups: notable elements</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-numericalsgps-second-lesson.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pseudo-Frobenius numbers and families</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-numercalsgps-third-session.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gluings, Hilbert series, minimal presentations</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5-numercalsgps-fourth-session.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Minimal presentations and binomial ideals, complete intersections</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-numericalsgps-fifth-session.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Non-unique factorization invariants, primality, divisors</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7-numericalsgps-seventh-session.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ideals of numerical semigroups</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gap-guava.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Codes with GUAVA</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+<div class="quarto-sidebar-footer"><div class="sidebar-footer-item">
+<p>Rendered with <a href="https://quarto.org/">Quarto</a></p>
+</div></div></nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="examples-with-guava-gap-package" class="level1">
+<h1>Examples with <code>guava</code> <code>GAP</code> package</h1>
+<section id="defining-a-code" class="level2">
+<h2 class="anchored" data-anchor-id="defining-a-code">Defining a code</h2>
+<p>We load <code>guava</code> with <code>LoadPackage("guava");</code>.</p>
+<pre><code>gap&gt; c1:=Codeword("000");
+[ 0 0 0 ]
+gap&gt; c2:=Codeword("111");
+[ 1 1 1 ]
+gap&gt; DistanceCodeword(c1,c2);
+3
+gap&gt; Weight(c1);
+0
+gap&gt; Weight(c2);
+3</code></pre>
+<p>With this two words we can define a code.</p>
+<pre><code>gap&gt; C:=ElementsCode([c1,c2],GF(2));
+a (3,2,1..3)1 user defined unrestricted code over GF(2)
+gap&gt; IsLinearCode(C);
+true
+gap&gt; MinimumDistance(C);
+3</code></pre>
+<p>And so this can detect two errors, and can correct one error.</p>
+<pre><code>gap&gt; Decode(C,Codeword("011"));
+[ 1 ]
+gap&gt; Decode(C,Codeword("010"));
+[ 0 ]</code></pre>
+<p>This code decodes by majority.</p>
+</section>
+<section id="linear-codes" class="level2">
+<h2 class="anchored" data-anchor-id="linear-codes">Linear codes</h2>
+<p>Recall that a code is linear if it is a subspace of <span class="math inline">\(\mathbb{F}_q^n\)</span> for some finite field <span class="math inline">\(\mathbb{F}_q\)</span> and a positive integer <span class="math inline">\(n\)</span>. Our code <span class="math inline">\(\{000,111\}\)</span> is linear, since it is a subspace of <span class="math inline">\(\mathbb{Z}_2^3\)</span>.</p>
+<pre><code>gap&gt; C:=ElementsCode([[0,0,0],[0,1,1],[1,0,1],[1,1,0]],GF(2));
+a (3,4,1..3)1 user defined unrestricted code over GF(2)
+gap&gt; IsLinearCode(C);
+true
+gap&gt; G:=GeneratorMat(C);
+[ [ 0*Z(2), Z(2)^0, Z(2)^0 ], [ Z(2)^0, 0*Z(2), Z(2)^0 ] ]
+gap&gt; List(GeneratorMat(C),Codeword);
+[ [ 0 1 1 ], [ 1 0 1 ] ]</code></pre>
+<p>Encoding is performed by multiplying on the left by the generating matrix.</p>
+<pre><code>gap&gt; Codeword([0,1]*G);
+[ 1 0 1 ]</code></pre>
+<p>In this case <span class="math inline">\((b_1\ b_1)G=(b_1\ b_2\ b_1+b_2)\)</span>. So the third bit is a parity check.</p>
+<p>A linear code can also be given in terms of its generating matrix or parity check matrix.</p>
+<pre><code>gap&gt; m:=[[1,1,1,0,0,0,0],[1,0,0,1,1,0,0],[0,1,0,1,0,1,0],[1,1,0,1,0,0,1]];;
+gap&gt; C:=GeneratorMatCode(m,GF(2));
+a linear [7,4,1..3]1 code defined by generator matrix over GF(2)
+gap&gt; Elements(C);
+[ [ 0 0 0 0 0 0 0 ], [ 0 0 0 1 1 1 1 ], [ 0 0 1 0 1 1 0 ], [ 0 0 1 1 0 0 1 ], [ 0 1 0 0 1 0 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 1 0 0 1 1 ], [ 0 1 1 1 1 0 0 ], [ 1 0 0 0 0 1 1 ], [ 1 0 0 1 1 0 0 ], [ 1 0 1 0 1 0 1 ], [ 1 0 1 1 0 1 0 ], [ 1 1 0 0 1 1 0 ], [ 1 1 0 1 0 0 1 ], [ 1 1 1 0 0 0 0 ], [ 1 1 1 1 1 1 1 ] ]
+gap&gt; Dimension(C);
+4
+gap&gt; H:=CheckMat(C);
+[ &lt;an immutable GF2 vector of length 7&gt;, &lt;an immutable GF2 vector of length 7&gt;, &lt;an immutable GF2 vector of length 7&gt; ]
+gap&gt; List(H, Codeword);
+[ [ 0 1 1 1 1 0 0 ], [ 1 0 1 1 0 1 0 ], [ 1 1 0 1 0 0 1 ] ]
+gap&gt; c:=Elements(C)[2];
+[ 0 0 0 1 1 1 1 ]
+gap&gt;H*c;
+[ 0 0 0 ]</code></pre>
+<p>Recall that in a linear code</p>
+<pre><code>gap&gt; MinimumDistance(C)&lt;=1+WordLength(C)-Dimension(C);
+true</code></pre>
+<p>Membership can be detected with <code>in</code>.</p>
+<pre><code>gap&gt; cc:=Codeword("10101000");
+[ 1 0 1 0 1 0 0 0 ]
+gap&gt; cc in C;
+false
+gap&gt; H*cc;
+[ 0 0 1 ]</code></pre>
+</section>
+<section id="hamming-codes" class="level2">
+<h2 class="anchored" data-anchor-id="hamming-codes">Hamming codes</h2>
+<p>A hamming code is a code of word length <span class="math inline">\(2^{m-1}\)</span> whose parity matrix contains as rows all nonzero words of <span class="math inline">\(m\)</span> bits. The dimension of this code is <span class="math inline">\(2^{m-1}-m-1\)</span>. These are denoted by <span class="math inline">\(\mathcal{H}_{2^m-1}\)</span>, <span class="math inline">\(m\ge 3\)</span>.</p>
+<p>In <code>guava</code> a hamming code is defined by means of its redundancy. For instance, <span class="math inline">\(\mathcal{H}_7\)</span> has redundancy <span class="math inline">\(3\)</span>.</p>
+<pre><code>gap&gt; C:=HammingCode(3);
+a linear [7,4,3]1 Hamming (3,2) code over GF(2)
+gap&gt; G:=GeneratorMat(C);;
+gap&gt; List(G,Codeword);
+[ [ 1 1 1 0 0 0 0 ], [ 1 0 0 1 1 0 0 ], [ 0 1 0 1 0 1 0 ], [ 1 1 0 1 0 0 1 ] ]
+gap&gt; Dimension(C);
+4
+gap&gt; MinimumDistance(C);
+3
+gap&gt; WordLength(C);
+7
+gap&gt; Redundancy(C);
+3
+gap&gt; AsSortedList(C);
+[ [ 0 0 0 0 0 0 0 ], [ 0 0 0 1 1 1 1 ], [ 0 0 1 0 1 1 0 ], [ 0 0 1 1 0 0 1 ],
+  [ 0 1 0 0 1 0 1 ], [ 0 1 0 1 0 1 0 ], [ 0 1 1 0 0 1 1 ], [ 0 1 1 1 1 0 0 ],
+  [ 1 0 0 0 0 1 1 ], [ 1 0 0 1 1 0 0 ], [ 1 0 1 0 1 0 1 ], [ 1 0 1 1 0 1 0 ],
+  [ 1 1 0 0 1 1 0 ], [ 1 1 0 1 0 0 1 ], [ 1 1 1 0 0 0 0 ], [ 1 1 1 1 1 1 1 ] ]</code></pre>
+</section>
+<section id="decoding-with-syndromes" class="level2">
+<h2 class="anchored" data-anchor-id="decoding-with-syndromes">Decoding with syndromes</h2>
+<p>A linear code <span class="math inline">\(C\)</span> is the kernel of its parity check matrix <span class="math inline">\(H\)</span>.</p>
+<p>Assume that <span class="math inline">\(c\)</span> is a codeword and that an error <span class="math inline">\(e\)</span> is produced. Then we receive <span class="math inline">\(v=c+e\)</span>, thus <span class="math inline">\(e=v+c\)</span> (we are using binary codes). The vector <span class="math inline">\(e\)</span> is called a <em>pattern error</em>. We can detect <span class="math inline">\(2^n-2^k\)</span> pattern errors (with <span class="math inline">\(n\)</span> the length of the words and <span class="math inline">\(k\)</span> the dimension of <span class="math inline">\(C\)</span>).</p>
+<p>Observe that <span class="math inline">\(s=v^t H =e^t H\)</span> and does not depends on <span class="math inline">\(c\)</span>. This value is called a syndrome. There is only a syndrome for each class modulo <span class="math inline">\(C\)</span>. Indeed, there are as many syndromes as elements in <span class="math inline">\(\operatorname{im}(H)\)</span>, and this is isomorphic to <span class="math inline">\(\ker(H)/C\)</span>. So we are able to correct <span class="math inline">\(2^{n-k}\)</span> pattern errors.</p>
+<p>The syndrome table associates to each syndrome <span class="math inline">\(s=v^tH\)</span> an element <span class="math inline">\(e\)</span> modulo <span class="math inline">\(C\)</span> (with minimal weight). Observe that <span class="math inline">\(c=v+e\)</span>, and so we can recover from <span class="math inline">\(v\)</span> and <span class="math inline">\(e\)</span> the codeword <span class="math inline">\(c\)</span>.</p>
+<pre><code>gap&gt; C:=HammingCode(3);;
+gap&gt; v:=Codeword("0000111");
+[ 0 0 0 0 1 1 1 ]
+gap&gt; m:=Decode(C,v);
+[ 0 1 1 1 ]
+gap&gt; m*G;
+[ 0 0 0 1 1 1 1 ]</code></pre>
+<p>We can do this with the syndrome table.</p>
+<pre><code>gap&gt; Syndrome(C,v);
+[ 1 0 0 ]
+gap&gt; H:=CheckMat(C);;
+gap&gt; H*c;
+[ 1 0 0 ]
+gap&gt; st:=SyndromeTable(C);
+[ [ [ 0 0 0 0 0 0 0 ], [ 0 0 0 ] ], [ [ 1 0 0 0 0 0 0 ], [ 0 0 1 ] ],
+  [ [ 0 1 0 0 0 0 0 ], [ 0 1 0 ] ], [ [ 0 0 1 0 0 0 0 ], [ 0 1 1 ] ],
+  [ [ 0 0 0 1 0 0 0 ], [ 1 0 0 ] ], [ [ 0 0 0 0 1 0 0 ], [ 1 0 1 ] ],
+  [ [ 0 0 0 0 0 1 0 ], [ 1 1 0 ] ], [ [ 0 0 0 0 0 0 1 ], [ 1 1 1 ] ] ]
+gap&gt; First(st, x-&gt;x[2]=Syndrome(C,v))[1];
+[ 0 0 0 1 0 0 0 ]
+gap&gt; v+last;
+[ 0 0 0 1 1 1 1 ]</code></pre>
+</section>
+<section id="binary-goppa-codes" class="level2">
+<h2 class="anchored" data-anchor-id="binary-goppa-codes">(Binary) Goppa codes</h2>
+<p>Let <span class="math inline">\(g(x)\)</span> be a squarefree polynomial over <span class="math inline">\(\mathbb{F}_{2^k}\)</span> for some positive integer <span class="math inline">\(k\)</span>. Let <span class="math inline">\(L=\{\alpha_1,\ldots,\alpha_n\}\subset \mathbb{F}_{2^k}\)</span> be such that no <span class="math inline">\(\alpha_i\)</span> is a zero of <span class="math inline">\(g(x)\)</span>. Set for <span class="math inline">\(c\in \mathbb{Z}_2^n\)</span>, set <span class="math inline">\(R_c(x)=\sum_{i=1}^n \frac{c_i}{x-\alpha_i} \bmod{g(x)}\)</span>. The Goppa code associated to <span class="math inline">\(g(x)\)</span> and <span class="math inline">\(c\)</span> is the set of <span class="math inline">\(c\in\mathbb{Z}_2^n\)</span> such that <span class="math inline">\(R_c(x)\cong 0 \bmod{g(x)}\)</span>.</p>
+<p>The minimum distance of this codes is <span class="math inline">\(2\deg(g(x))+1\)</span>.</p>
+<pre><code>gap&gt; x:=X(GF(8),"x");
+x
+gap&gt; g:=x^2+x+1;
+x^2+x+Z(2)^0
+gap&gt; L:=Elements(GF(8));
+[ 0*Z(2), Z(2)^0, Z(2^3), Z(2^3)^2, Z(2^3)^3, Z(2^3)^4, Z(2^3)^5, Z(2^3)^6 ]
+gap&gt; C:=GoppaCode(g,L);
+a linear [8,2,5]3 classical Goppa code over GF(2)
+gap&gt; Elements(C);
+[ [ 0 0 0 0 0 0 0 0 ], [ 0 0 1 1 1 1 1 1 ], [ 1 1 0 0 1 0 1 1 ],
+  [ 1 1 1 1 0 1 0 0 ] ]
+gap&gt; G:=GeneratorMat(C);
+[ &lt;an immutable GF2 vector of length 8&gt;, &lt;an immutable GF2 vector of length
+    8&gt; ]
+gap&gt; List(G,Codeword);
+[ [ 1 1 1 1 0 1 0 0 ], [ 1 1 0 0 1 0 1 1 ] ]</code></pre>
+<p>We can compute <span class="math inline">\(\frac{1}{x-a}\mod g(x)\)</span> with <span class="math inline">\(a\in L\)</span></p>
+<pre><code>gap&gt; inv:=List(L, a-&gt;GcdRepresentation(x-a,g)[1]);
+[ x+Z(2)^0, x, Z(2^3)^2*x+Z(2^3)^5, Z(2^3)^4*x+Z(2^3)^3, Z(2^3)^2*x+Z(2^3)^3,
+  Z(2^3)*x+Z(2^3)^6, Z(2^3)*x+Z(2^3)^5, Z(2^3)^4*x+Z(2^3)^6 ]</code></pre>
+<p>Yet another example</p>
+<pre><code>gap&gt; x:=Indeterminate(GF(16),"x");
+x
+gap&gt; g:=x^2+x+Z(16)^3;      
+x^2+x+Z(2^4)^3
+gap&gt; L := List([2..13], i-&gt;Z(16)^i);
+[ Z(2^4)^2, Z(2^4)^3, Z(2^4)^4, Z(2^2), Z(2^4)^6, Z(2^4)^7, Z(2^4)^8,
+  Z(2^4)^9, Z(2^2)^2, Z(2^4)^11, Z(2^4)^12, Z(2^4)^13 ]
+gap&gt; C:=GoppaCode(g,L);
+a linear [12,4,5]4..5 classical Goppa code over GF(2)
+gap&gt; H:=CheckMat(C);
+[ &lt;an immutable GF2 vector of length 12&gt;, &lt;an immutable GF2 vector of length
+    12&gt;, &lt;an immutable GF2 vector of length 12&gt;,
+  &lt;an immutable GF2 vector of length 12&gt;, &lt;an immutable GF2 vector of length
+    12&gt;, &lt;an immutable GF2 vector of length 12&gt;,
+  &lt;an immutable GF2 vector of length 12&gt;, &lt;an immutable GF2 vector of length
+    12&gt; ]
+gap&gt; List(H,Codeword);
+[ [ 0 0 1 0 1 0 0 0 0 0 0 1 ], [ 0 1 0 1 1 0 0 0 1 0 0 1 ],
+  [ 0 0 0 0 1 1 0 1 0 1 1 1 ], [ 1 0 0 1 0 0 1 0 1 1 1 0 ],
+  [ 0 0 0 1 0 0 0 0 1 0 0 1 ], [ 0 0 0 0 0 1 0 1 1 0 0 0 ],
+  [ 0 0 0 0 0 0 0 1 1 0 1 0 ], [ 0 0 0 0 0 0 1 0 0 1 0 0 ] ]
+gap&gt; G:=GeneratorMat(C);
+[ &lt;an immutable GF2 vector of length 12&gt;, &lt;an immutable GF2 vector of length
+    12&gt;, &lt;an immutable GF2 vector of length 12&gt;,
+  &lt;an immutable GF2 vector of length 12&gt; ]
+gap&gt; List(G,Codeword);
+[ [ 0 1 1 1 1 0 0 1 1 0 0 0 ], [ 0 1 1 0 1 0 1 0 0 1 0 0 ],
+  [ 1 1 1 0 1 1 0 1 0 0 1 0 ], [ 1 1 0 1 1 0 0 0 0 0 0 1 ] ]</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/numerical-semigroups\.github\.io\/SSC-Semigroups\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/numerical-semigroups/SSC-Semigroups/issues" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
