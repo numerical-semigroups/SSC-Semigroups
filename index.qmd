@@ -7,4 +7,4 @@ Examples for the course on numerical semigroups at the [Scuola superiore di Cata
 
 In this folder there are some examples of the use of [NumericalSgps](https://gap-packages.github.io/numericalsgps) [gap](http://www.gap-system.org) package for the contents of the course. 
 
-We will follow mainly this [book]([http://www.springer.com/us/book/9781441901590](https://link.springer.com/book/10.1007/978-1-4419-0160-6)) on numerical semigroups and this [other]([http://www.springer.com/us/book/9781441901590](https://link.springer.com/book/10.1007/978-3-030-54943-5)) with some applications.
+We will follow mainly this [book]([http://www.springer.com/us/book/9781441901590](https://link.springer.com/book/10.1007/978-1-4419-0160-6) on numerical semigroups and this [other](https://link.springer.com/book/10.1007/978-3-030-54943-5) with some applications.
