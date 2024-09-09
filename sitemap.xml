@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/index.html</loc>
-    <lastmod>2024-09-07T20:33:07.543Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/5-numercalsgps-fourth-session.html</loc>
-    <lastmod>2024-09-07T20:03:49.841Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/4-numercalsgps-third-session.html</loc>
-    <lastmod>2024-09-07T20:03:49.841Z</lastmod>
-  </url>
-  <url>
     <loc>https://numerical-semigroups.github.io/SSC-Semigroups/gap-guava.html</loc>
-    <lastmod>2024-09-07T20:03:49.856Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/6-numericalsgps-fifth-session.html</loc>
-    <lastmod>2024-09-07T20:03:49.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/7-numericalsgps-seventh-session.html</loc>
-    <lastmod>2024-09-07T20:03:49.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/2-numercalsgps-first-session.html</loc>
-    <lastmod>2024-09-07T20:03:49.839Z</lastmod>
+    <lastmod>2024-09-09T17:56:27.986Z</lastmod>
   </url>
   <url>
     <loc>https://numerical-semigroups.github.io/SSC-Semigroups/gap-numricalsgps.html</loc>
-    <lastmod>2024-09-07T20:03:49.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/1-First steps GAP.html</loc>
-    <lastmod>2024-09-07T20:03:49.838Z</lastmod>
-  </url>
-  <url>
-    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/3-numericalsgps-second-lesson.html</loc>
-    <lastmod>2024-09-07T20:03:49.839Z</lastmod>
+    <lastmod>2024-09-09T17:56:27.986Z</lastmod>
   </url>
   <url>
     <loc>https://numerical-semigroups.github.io/SSC-Semigroups/Exercises/exercises.html</loc>
-    <lastmod>2024-09-07T20:03:49.853Z</lastmod>
+    <lastmod>2024-09-09T17:56:27.985Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/1-First steps GAP.html</loc>
+    <lastmod>2024-09-09T17:56:27.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/6-numericalsgps-fifth-session.html</loc>
+    <lastmod>2024-09-09T17:56:27.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/7-numericalsgps-seventh-session.html</loc>
+    <lastmod>2024-09-09T17:56:27.982Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/4-numercalsgps-third-session.html</loc>
+    <lastmod>2024-09-09T17:56:27.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/5-numercalsgps-fourth-session.html</loc>
+    <lastmod>2024-09-09T17:56:27.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/index.html</loc>
+    <lastmod>2024-09-09T17:56:27.986Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/2-numercalsgps-first-session.html</loc>
+    <lastmod>2024-09-09T17:56:27.981Z</lastmod>
+  </url>
+  <url>
+    <loc>https://numerical-semigroups.github.io/SSC-Semigroups/3-numericalsgps-second-lesson.html</loc>
+    <lastmod>2024-09-09T17:56:27.981Z</lastmod>
   </url>
 </urlset>
